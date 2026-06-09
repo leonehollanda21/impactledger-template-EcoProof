@@ -19,6 +19,65 @@ O projeto está organizado nas seguintes pastas:
 
 ---
 
+# 📋 Requisitos do Sistema — EcoProof
+
+Para executar o projeto **EcoProof** completo (Blockchain, Middleware e Frontend) em sua máquina local, certifique-se de ter os seguintes softwares, ferramentas e serviços configurados.
+
+---
+
+## 🛠️ 1. Ferramentas Globais e Softwares
+Estes são os programas base que precisam estar instalados no seu sistema operacional:
+
+* **Node.js (v18 ou superior)**: Necessário para rodar o Frontend (Vue/Vite) e o ambiente de desenvolvimento de Smart Contracts (Hardhat).
+  * *Verifique a versão rodando:* `node -v`
+* **Python (v3.8 ou superior)**: Necessário para rodar o Middleware (Backend em FastAPI).
+  * *Verifique a versão rodando:* `python --version` ou `python3 --version`
+* **PostgreSQL**: Banco de dados relacional rodando localmente (ou em nuvem) para persistência dos dados do Middleware.
+* **Git**: Para versionamento e clonagem do repositório.
+* **Editor de Código**: Recomendamos o **Visual Studio Code (VS Code)**.
+
+---
+
+## 🦊 2. Requisitos Web3 e Blockchain
+Para interagir com a blockchain e fazer o deploy dos contratos, você precisará das seguintes contas e ferramentas:
+
+* **MetaMask (ou carteira web3 equivalente)**: Extensão de navegador instalada.
+* **Rede Polygon Amoy (Testnet)**: Configurada na sua MetaMask.
+* **Tokens POL de Teste**: Necessários para pagar as taxas de gás. Você pode obter fundos gratuitos em *faucets* da rede Amoy.
+* **Conta no Alchemy (ou Infura)**: Para obter a URL RPC (API Key) e conectar o Hardhat/Web3.py à rede Polygon Amoy.
+* **Conta no PolygonScan**: Para gerar a API Key necessária para a verificação do código dos Smart Contracts após o deploy.
+
+---
+
+## 🔑 3. Chaves de API e Serviços Externos (Middleware)
+O backend consome serviços de terceiros para inteligência artificial e armazenamento de arquivos. Crie contas gratuitas e gere as seguintes chaves:
+
+* **Google Gemini API Key**: Necessária para a auditoria e validação automática das imagens submetidas (ações ambientais).
+* **Cloudinary**: Necessário para o armazenamento em nuvem das fotos e documentos. Você precisará de:
+  * `Cloud Name`
+  * `API Key`
+  * `API Secret`
+
+---
+
+## 📦 4. Resumo de Dependências por Módulo
+
+### Frontend (`EcoProof_frontend`)
+* Gerenciador de pacotes: `npm` ou `yarn`
+* Principais dependências: `vue`, `vite`, pacotes de integração Web3.
+
+### Middleware (`ecoproof_middleware`)
+* Gerenciador de pacotes: `pip` e `venv` (Ambiente Virtual)
+* Principais dependências: `fastapi`, `uvicorn`, `sqlalchemy`, `alembic`, `psycopg2`, `web3`, `google-generativeai`, `cloudinary`.
+
+### Blockchain (`ecoproof_blockchain`)
+* Gerenciador de pacotes: `npm`
+* Principais dependências: `hardhat`, `@openzeppelin/contracts`, `ethers`.
+
+---
+*Este documento faz parte do projeto EcoProof, desenvolvido para o desafio ImpactLedger (Hackathon Web3 RESTIC 29).*
+
+---
 ## ⚙️ Como Executar o Projeto Inteiro
 
 Para rodar o projeto localmente por completo, você precisará de **3 terminais abertos** simultaneamente.
@@ -26,13 +85,6 @@ Para rodar o projeto localmente por completo, você precisará de **3 terminais 
 ---
 
 ### 🌐 Passo 1: Inicializar a Blockchain Local (Terminal 1)
-
-## Pré-requisitos
-
-- Node.js 18+
-- Uma carteira (MetaMask) com *POL* de teste na rede Polygon Amoy (faucets abaixo)
-- Conta no [Alchemy](https://alchemy.com) configurada para a rede Polygon Amoy
-- Conta no [PolygonScan](https://polygonscan.com/) para gerar a API Key de verificação
 
 O smart contract precisa de uma rede para rodar. Usaremos a rede de testes local fornecida pelo Hardhat.
 
