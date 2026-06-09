@@ -1,0 +1,68 @@
+"""
+Alembic env.py — configurado para EcoProof com modelos SQLAlchemy
+"""
+import os
+import sys
+from logging.config import fileConfig
+
+from sqlalchemy import engine_from_config, pool
+
+from alembic import context
+
+# Garante que o diretório raiz do projeto está no sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+# Importa a Base e todos os models para que o Alembic os reconheça
+from app.db.database import Base, sync_engine  # noqa: E402
+import app.models  # noqa: E402, F401 — garante que todos os models são registrados
+
+# ── Lê config do alembic.ini ────────────────────────────────
+config = context.config
+
+# Sobrescreve a URL com a variável de ambiente, se disponível
+db_url = os.getenv("DATABASE_URL_SYNC") or os.getenv("DATABASE_URL")
+if db_url:
+    # asyncpg → psycopg2 para uso síncrono no Alembic
+    db_url = db_url.replace("postgresql+asyncpg://", "postgresql://")
+    config.set_main_option("sqlalchemy.url", db_url)
+
+if config.config_file_name is not None:
+    fileConfig(config.config_file_name)
+
+target_metadata = Base.metadata
+
+
+# ── Modo offline ────────────────────────────────────────────
+def run_migrations_offline() -> None:
+    url = config.get_main_option("sqlalchemy.url")
+    context.configure(
+        url=url,
+        target_metadata=target_metadata,
+        literal_binds=True,
+        dialect_opts={"paramstyle": "named"},
+        compare_type=True,
+        compare_server_default=True,
+    )
+    with context.begin_transaction():
+        context.run_migrations()
+
+
+# ── Modo online ─────────────────────────────────────────────
+def run_migrations_online() -> None:
+    connectable = sync_engine
+
+    with connectable.connect() as connection:
+        context.configure(
+            connection=connection,
+            target_metadata=target_metadata,
+            compare_type=True,
+            compare_server_default=True,
+        )
+        with context.begin_transaction():
+            context.run_migrations()
+
+
+if context.is_offline_mode():
+    run_migrations_offline()
+else:
+    run_migrations_online()

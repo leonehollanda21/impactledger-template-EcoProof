@@ -1,0 +1,54 @@
+# =========================================
+# Dependências do Node.js
+# =========================================
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# =========================================
+# Artefatos do Hardhat (Gerados Automaticamente)
+# =========================================
+cache/
+artifacts/
+typechain/
+typechain-types/
+
+# =========================================
+# Relatórios de Teste e Cobertura
+# =========================================
+coverage/
+coverage.json
+gas-report.txt
+
+# =========================================
+# Segurança & Ambiente
+# =========================================
+.env
+.secret
+*.pem
+*.key
+
+# =========================================
+# OpenZeppelin Upgrades (Atenção Aqui)
+# =========================================
+# Ignoramos apenas os estados de redes locais.
+# Os arquivos das redes públicas (ex: sepolia.json, mainnet.json)
+# DEVEM ser commitados para rastrear as implementações dos proxies.
+.openzeppelin/unknown-*.json
+.openzeppelin/localhost.json
+.openzeppelin/hardhat.json
+
+# =========================================
+# Sistema Operacional & Editores
+# =========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
+*.swp

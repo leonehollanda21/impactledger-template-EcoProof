@@ -1,0 +1,39 @@
+# ═══════════════════════════════════════════════
+#  EcoProof API — requirements.txt
+#  Python 3.11+
+# ═══════════════════════════════════════════════
+
+# ── Web Framework ────────────────────────────
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9         # multipart/form-data (UploadFile)
+
+# ── Database ─────────────────────────────────
+sqlalchemy[asyncio]>=2.0.36
+asyncpg>=0.30.0                 # driver async para PostgreSQL (suporte Python 3.13)
+psycopg2-binary>=2.9.10         # driver sync (Alembic) (suporte Python 3.13)
+alembic>=1.13.1
+
+# ── Pydantic & Configuração ──────────────────
+pydantic>=2.9.2
+pydantic-settings>=2.2.1
+python-dotenv>=1.0.1
+
+# ── Segurança & Auth ─────────────────────────
+python-jose[cryptography]==3.3.0    # JWT
+passlib[bcrypt]==1.7.4              # hash de senhas
+
+# ── Cloudinary (armazenamento de imagens) ────
+cloudinary==1.40.0
+
+# ── Google Gemini AI (validação de imagens) ──────────────────
+google-generativeai==0.7.2
+
+# ── HTTP Client (proxy metadata NFT) ─────────
+httpx==0.27.0
+
+# ── Web3 / Blockchain ────────────────────────
+web3>=7.0.0
+
+# ── Utilitários ──────────────────────────────
+python-dateutil==2.9.0

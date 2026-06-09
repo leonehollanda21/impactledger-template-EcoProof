@@ -1,0 +1,101 @@
+version: "3.9"
+
+# ══════════════════════════════════════════════════════════════════
+#  EcoProof — docker-compose.yml
+#
+#  Serviços:
+#    api  → FastAPI + Uvicorn (porta 8000)
+#    db   → PostgreSQL 15 (porta 5432)
+#
+#  Uso:
+#    cp .env.example .env      # configure as variáveis
+#    docker compose up --build # sobe tudo
+#    docker compose up -d      # em background
+# ══════════════════════════════════════════════════════════════════
+
+services:
+
+  # ── PostgreSQL 15 ──────────────────────────────────────────────
+  db:
+    image: postgres:15-alpine
+    container_name: ecoproof_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ecoproof
+      POSTGRES_PASSWORD: ecoproof
+      POSTGRES_DB: ecoproof
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ecoproof -d ecoproof"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - ecoproof_net
+
+  # ── FastAPI + Uvicorn ──────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ecoproof_api
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      # Sobrescreve DATABASE_URL para apontar ao serviço db interno
+      DATABASE_URL: postgresql+asyncpg://ecoproof:ecoproof@db:5432/ecoproof
+      DATABASE_URL_SYNC: postgresql://ecoproof:ecoproof@db:5432/ecoproof
+      # Cloudinary — preencha no .env (não são sobrescritas aqui)
+      # CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET
+    ports:
+      - "8000:8000"
+    volumes:
+      # Hot-reload em desenvolvimento — remova em produção
+      - .:/app
+      # Credenciais Google Vision (opcional)
+      - ./credentials:/app/credentials:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - ecoproof_net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+  # ── Alembic migrations (run-once) ─────────────────────────────
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ecoproof_migrate
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL_SYNC: postgresql://ecoproof:ecoproof@db:5432/ecoproof
+    command: >
+      sh -c "alembic upgrade head && echo 'Migrations aplicadas com sucesso!'"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - ecoproof_net
+    restart: "no"    # roda apenas uma vez e encerra
+
+# ── Volumes ────────────────────────────────────────────────────
+volumes:
+  postgres_data:
+    driver: local
+
+# ── Redes ─────────────────────────────────────────────────────
+networks:
+  ecoproof_net:
+    driver: bridge
