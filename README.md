@@ -23,7 +23,6 @@ O projeto está organizado nas seguintes pastas:
 
 Para executar o projeto **EcoProof** completo (Blockchain, Middleware e Frontend) em sua máquina local, certifique-se de ter os seguintes softwares, ferramentas e serviços configurados.
 
----
 
 ## 🛠️ 1. Ferramentas Globais e Softwares
 Estes são os programas base que precisam estar instalados no seu sistema operacional:
@@ -36,7 +35,6 @@ Estes são os programas base que precisam estar instalados no seu sistema operac
 * **Git**: Para versionamento e clonagem do repositório.
 * **Editor de Código**: Recomendamos o **Visual Studio Code (VS Code)**.
 
----
 
 ## 🦊 2. Requisitos Web3 e Blockchain
 Para interagir com a blockchain e fazer o deploy dos contratos, você precisará das seguintes contas e ferramentas:
@@ -47,7 +45,6 @@ Para interagir com a blockchain e fazer o deploy dos contratos, você precisará
 * **Conta no Alchemy (ou Infura)**: Para obter a URL RPC (API Key) e conectar o Hardhat/Web3.py à rede Polygon Amoy.
 * **Conta no PolygonScan**: Para gerar a API Key necessária para a verificação do código dos Smart Contracts após o deploy.
 
----
 
 ## 🔑 3. Chaves de API e Serviços Externos (Middleware)
 O backend consome serviços de terceiros para inteligência artificial e armazenamento de arquivos. Crie contas gratuitas e gere as seguintes chaves:
@@ -58,7 +55,6 @@ O backend consome serviços de terceiros para inteligência artificial e armazen
   * `API Key`
   * `API Secret`
 
----
 
 ## 📦 4. Resumo de Dependências por Módulo
 
