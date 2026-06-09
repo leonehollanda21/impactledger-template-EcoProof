@@ -19,7 +19,7 @@ O projeto está organizado nas seguintes pastas:
 
 ---
 
-# 📋 Requisitos do Sistema — EcoProof
+## 📋 Requisitos do Sistema — EcoProof
 
 Para executar o projeto **EcoProof** completo (Blockchain, Middleware e Frontend) em sua máquina local, certifique-se de ter os seguintes softwares, ferramentas e serviços configurados.
 
@@ -73,9 +73,6 @@ O backend consome serviços de terceiros para inteligência artificial e armazen
 ### Blockchain (`ecoproof_blockchain`)
 * Gerenciador de pacotes: `npm`
 * Principais dependências: `hardhat`, `@openzeppelin/contracts`, `ethers`.
-
----
-*Este documento faz parte do projeto EcoProof, desenvolvido para o desafio ImpactLedger (Hackathon Web3 RESTIC 29).*
 
 ---
 ## ⚙️ Como Executar o Projeto Inteiro
