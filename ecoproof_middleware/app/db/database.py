@@ -12,11 +12,19 @@ class Base(DeclarativeBase):
     pass
 
 
+import os
+
 # ──────────────────────────────────────────────
 # Engine assíncrono (asyncpg) — usado pela API
 # ──────────────────────────────────────────────
+db_url = settings.DATABASE_URL
+if db_url.startswith("postgres://"):
+    db_url = db_url.replace("postgres://", "postgresql+asyncpg://", 1)
+elif db_url.startswith("postgresql://"):
+    db_url = db_url.replace("postgresql://", "postgresql+asyncpg://", 1)
+
 async_engine = create_async_engine(
-    settings.DATABASE_URL,
+    db_url,
     echo=settings.DEBUG,
     pool_pre_ping=True,
     pool_size=10,
@@ -35,8 +43,14 @@ AsyncSessionLocal = async_sessionmaker(
 # ──────────────────────────────────────────────
 # Engine síncrono (psycopg2) — usado pelo Alembic
 # ──────────────────────────────────────────────
+db_url_sync = os.getenv("DATABASE_URL_SYNC") or os.getenv("DATABASE_URL") or settings.DATABASE_URL_SYNC
+if db_url_sync.startswith("postgres://"):
+    db_url_sync = db_url_sync.replace("postgres://", "postgresql://", 1)
+elif db_url_sync.startswith("postgresql+asyncpg://"):
+    db_url_sync = db_url_sync.replace("postgresql+asyncpg://", "postgresql://", 1)
+
 sync_engine = create_engine(
-    settings.DATABASE_URL_SYNC,
+    db_url_sync,
     echo=settings.DEBUG,
     pool_pre_ping=True,
 )

@@ -1,0 +1,69 @@
+# ==============================================================================
+# Unified .gitignore for EcoProof Monorepo
+# Includes rules for Solidity (Hardhat), Python (FastAPI), and Vue 3 (Vite)
+# ==============================================================================
+
+# ── 1. Security & Environment (Keep Secrets Out of Version Control) ───────────
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.secret
+*.pem
+*.key
+ecoproof_middleware/.env
+EcoProof_frontend/.env
+ecoproof_blockchain/.env
+.openzeppelin/unknown-*.json
+.openzeppelin/localhost.json
+.openzeppelin/hardhat.json
+
+# ── 2. Blockchain / Smart Contracts (ecoproof_blockchain) ──────────────────────
+ecoproof_blockchain/node_modules/
+ecoproof_blockchain/cache/
+ecoproof_blockchain/artifacts/
+ecoproof_blockchain/typechain/
+ecoproof_blockchain/typechain-types/
+ecoproof_blockchain/coverage/
+ecoproof_blockchain/coverage.json
+ecoproof_blockchain/gas-report.txt
+
+# ── 3. Middleware / Backend (ecoproof_middleware) ──────────────────────────────
+ecoproof_middleware/venv/
+ecoproof_middleware/.venv/
+ecoproof_middleware/env/
+ecoproof_middleware/__pycache__/
+ecoproof_middleware/*.pyc
+ecoproof_middleware/*.pyo
+ecoproof_middleware/*.pyd
+ecoproof_middleware/.Python
+ecoproof_middleware/*.egg-info/
+ecoproof_middleware/.eggs/
+ecoproof_middleware/.pytest_cache/
+ecoproof_middleware/.mypy_cache/
+ecoproof_middleware/.ruff_cache/
+ecoproof_middleware/get-pip.py
+
+# ── 4. Frontend (EcoProof_frontend) ──────────────────────────────────────────
+EcoProof_frontend/node_modules/
+EcoProof_frontend/dist/
+EcoProof_frontend/dist-ssr/
+
+# ── 5. System and Editor files ────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvsca*
+*.njsproj
+*.sln
+*.sw?
+*.swp
