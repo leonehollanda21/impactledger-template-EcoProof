@@ -27,6 +27,13 @@ Para rodar o projeto localmente por completo, você precisará de **3 terminais 
 
 ### 🌐 Passo 1: Inicializar a Blockchain Local (Terminal 1)
 
+## Pré-requisitos
+
+- Node.js 18+
+- Uma carteira (MetaMask) com *POL* de teste na rede Polygon Amoy (faucets abaixo)
+- Conta no [Alchemy](https://alchemy.com) configurada para a rede Polygon Amoy
+- Conta no [PolygonScan](https://polygonscan.com/) para gerar a API Key de verificação
+
 O smart contract precisa de uma rede para rodar. Usaremos a rede de testes local fornecida pelo Hardhat.
 
 1.  Abra o primeiro terminal e acesse a pasta da blockchain:
