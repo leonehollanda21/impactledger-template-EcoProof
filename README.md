@@ -210,3 +210,4 @@ pytest
 ## 📖 Documentações Complementares
 *   Para detalhes das rotas, payloads de requisição e respostas da API, consulte: [API Docs (ecoproof_middleware/API_DOCS.md)](file:///E:/codes/hackathon_web3_fork/impactledger-template-EcoProof/ecoproof_middleware/API_DOCS.md)
 *   Para detalhes do fluxo on-chain, eventos Solidity e estrutura de segurança, consulte: [Blockchain Architecture (ecoproof_middleware/BLOCKCHAIN_ARCHITECTURE.md)](file:///E:/codes/hackathon_web3_fork/impactledger-template-EcoProof/ecoproof_middleware/BLOCKCHAIN_ARCHITECTURE.md)
+*   Uso de IA para realização, porém todos os arquivos foram revisados e auditados pelos membros do projeto. (Modelo : Claude, Gemini, Copilot)
