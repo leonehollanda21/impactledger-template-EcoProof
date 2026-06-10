@@ -44,69 +44,11 @@ Todos os contratos abaixo foram deployados na **Ethereum Sepolia Testnet** e est
 | Mint NFT — Educação Ambiental | `0x...` | [Ver transação](https://sepolia.etherscan.io/tx/0x...) |
 | Registry — Proof of Existence | `0x...` | [Ver transação](https://sepolia.etherscan.io/tx/0x...) |
 
-### Prints
-
-Os prints das transações e dos contratos verificados estão na subpasta `auditavel/`:
-
-```
-auditavel/
-├── contratos/
-│   ├── ecoproofregistry_etherscan.png
-│   ├── ecoproofnft_etherscan.png
-│   ├── institutonfts_etherscan.png
-│   ├── educacaonft_etherscan.png
-│   └── denuncianft_etherscan.png
-└── transacoes/
-    ├── mint_limpeza.png
-    ├── mint_evento.png
-    ├── mint_denuncia.png
-    ├── mint_educacao.png
-    └── registry_proof.png
-```
-
 ---
 
 ## 🎥 Demonstração Funcional
 
 Os vídeos e GIFs da plataforma em funcionamento estão na subpasta `funcional/`.
-
-### Fluxos gravados
-
-| Fluxo | Arquivo |
-|-------|---------|
-| Cadastro e login de cidadão | `funcional/01_cadastro_login.mp4` |
-| Registro de limpeza individual com validação por IA | `funcional/02_limpeza_individual.mp4` |
-| Recebimento do NFT Soulbound após aprovação | `funcional/03_nft_emitido.mp4` |
-| Instituto criando evento e emitindo NFTs em lote | `funcional/04_evento_mint_lote.mp4` |
-| Cidadão realizando denúncia ambiental | `funcional/05_denuncia.mp4` |
-| Admin resolvendo denúncia e emitindo NFT de fiscal | `funcional/06_admin_resolve_denuncia.mp4` |
-| Verificação pública de denúncia on-chain | `funcional/07_verificacao_onchain.mp4` |
-
-### Estrutura da pasta
-
-```
-funcional/
-├── 01_cadastro_login.mp4
-├── 02_limpeza_individual.mp4
-├── 03_nft_emitido.mp4
-├── 04_evento_mint_lote.mp4
-├── 05_denuncia.mp4
-├── 06_admin_resolve_denuncia.mp4
-└── 07_verificacao_onchain.mp4
-```
-
----
-
-## Estrutura Completa da Pasta
-
-```
-artefatos_web3/
-├── auditavel/
-│   ├── contratos/          # Prints dos contratos verificados no Etherscan
-│   └── transacoes/         # Prints das transações de mint e registry
-├── funcional/              # Vídeos e GIFs do sistema em funcionamento
-└── README.md               # Este arquivo
-```
 
 ---
 
