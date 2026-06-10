@@ -1,6 +1,6 @@
 # 🌿 EcoProof — Certificação de Ações Ambientais em Blockchain
 
-O **EcoProof** é uma plataforma descentralizada de incentivo, registro e auditoria de ações socioambientais (coletas de lixo, adorações de áreas verdes, educação ambiental e denúncias de infrações). Ele foi construído no modelo **Dual-Ledger** para unir a flexibilidade de um backend moderno com a auditabilidade e transparência da rede **Polygon**.
+O **EcoProof** é uma plataforma descentralizada de incentivo, registro e auditoria de ações socioambientais (coletas de lixo, adorações de áreas verdes, educação ambiental e denúncias de infrações). Ele foi construído no modelo **Dual-Ledger** para unir a flexibilidade de um backend moderno com a auditabilidade e transparência da rede **Polygon**. EcoProof pode ser acessado em : https://eco-proof-blond.vercel.app
 
 Esta é a pasta principal unificada com as três partes do projeto:
 1. **Blockchain**: Smart contracts desenvolvidos com Solidity e Hardhat.
