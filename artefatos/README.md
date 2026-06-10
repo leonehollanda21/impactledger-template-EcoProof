@@ -3,42 +3,44 @@
 Bem-vindo à pasta de artefatos do **EcoProof**, uma solução desenvolvida para o desafio **ImpactLedger** no **Hackathon Web3 RESTIC 29**.
 
 ## 💻 Sobre o Módulo
-Esta pasta reúne as evidências concretas da integração blockchain do EcoProof. Aqui estão registradas as provas públicas e verificáveis de que o sistema funciona de ponta a ponta: desde o cadastro de uma ação ambiental pelo cidadão até a emissão do NFT Soulbound na rede **Polygon Amoy**.
+Esta pasta reúne as evidências concretas da integração blockchain do EcoProof. Aqui estão registradas as provas públicas e verificáveis de que o sistema funciona de ponta a ponta: desde o cadastro de uma ação ambiental pelo cidadão até a emissão do NFT Soulbound na rede **Ethereum Sepolia**.
 
 O conteúdo está organizado em duas frentes:
 
-- **Demonstração Auditável** — links e prints de transações reais no PolygonScan, disponíveis publicamente para qualquer pessoa verificar.
+- **Demonstração Auditável** — links e prints de transações reais no Etherscan, disponíveis publicamente para qualquer pessoa verificar.
 - **Demonstração Funcional** — vídeo e/ou GIFs gravados com o sistema rodando, mostrando o fluxo completo da plataforma.
+
+> ⚠️ **Nota sobre a escolha da rede:** O deploy dos contratos foi realizado na **Ethereum Sepolia Testnet** em vez da Polygon Amoy originalmente planejada. A migração ocorreu por indisponibilidade de fundos de teste (POL) na Amoy para a realização das demonstrações no prazo do hackathon. A Sepolia oferece faucets mais acessíveis e estáveis para ETH de teste, viabilizando o deploy completo dos 5 contratos sem custo. A arquitetura do código permanece idêntica — apenas o `CHAIN_ID` e o `WEB3_PROVIDER_URL` foram atualizados no backend.
 
 ---
 
 ## 🔗 Demonstração Auditável
 
-Todas as transações abaixo foram realizadas na **Sepolia Testnet** e estão publicamente verificáveis no explorador de blocos oficial.
+Todos os contratos abaixo foram deployados na **Ethereum Sepolia Testnet** e estão publicamente verificáveis no Etherscan com código-fonte Solidity publicado.
 
-> 🌐 Block explorer: https://amoy.polygonscan.com
+> 🌐 Block explorer: https://sepolia.etherscan.io
 
 ### Contratos Deployados
 
-| Contrato | Endereço (Proxy) | PolygonScan |
-|----------|-----------------|-------------|
-| `EcoProofNFT` | `0x...` | [Ver contrato]([https://sepolia.etherscan.io/address/0xc4B55DB7315FA16610cb4a517720ab08E028684E#code]) |
-| `InstitutoNFT` | `0x...` | [Ver contrato](https://amoy.polygonscan.com/address/0x...) |
-| `EducacaoNFT` | `0x...` | [Ver contrato](https://amoy.polygonscan.com/address/0x...) |
-| `DenunciaNFT` | `0x...` | [Ver contrato](https://amoy.polygonscan.com/address/0x...) |
-| `EcoProofRegistry` | `0x...` | [Ver contrato](https://amoy.polygonscan.com/address/0x...) |
+| # | Contrato | Endereço (Proxy) | Etherscan |
+|---|----------|-----------------|-----------|
+| 1 | `EcoProofRegistry` | `0xc4B55DB7315FA16610cb4a517720ab08E028684E` | [Ver contrato](https://sepolia.etherscan.io/address/0xc4B55DB7315FA16610cb4a517720ab08E028684E#code) |
+| 2 | `EcoProofNFT` | `0x9d57C629e6c4fb4cCB7769A246275498C0524245` | [Ver contrato](https://sepolia.etherscan.io/address/0x9d57C629e6c4fb4cCB7769A246275498C0524245#code) |
+| 3 | `InstitutoNFT` | `0xD1Fe82Cfcb2b02B25C18B968c8a5ABF123D4b77E` | [Ver contrato](https://sepolia.etherscan.io/address/0xD1Fe82Cfcb2b02B25C18B968c8a5ABF123D4b77E#code) |
+| 4 | `EducacaoNFT` | `0x757d474931b6eF4aeE988BD121359b3c9c4695e9` | [Ver contrato](https://sepolia.etherscan.io/address/0x757d474931b6eF4aeE988BD121359b3c9c4695e9#code) |
+| 5 | `DenunciaNFT` | `0x9A4419888CEa4B43134f4AF3580f63fEC850E86f` | [Ver contrato](https://sepolia.etherscan.io/address/0x9A4419888CEa4B43134f4AF3580f63fEC850E86f#code) |
 
-> Os contratos foram verificados no PolygonScan — o código-fonte Solidity é público e auditável diretamente pelo explorador.
+> Os contratos foram verificados no Etherscan — o código-fonte Solidity é público e auditável diretamente pelo explorador.
 
 ### Transações de Referência
 
-| Ação | Transaction Hash | PolygonScan |
-|------|-----------------|-------------|
-| Mint NFT — Limpeza Individual | `0x...` | [Ver transação](https://amoy.polygonscan.com/tx/0x...) |
-| Mint NFT — Evento/Mutirão | `0x...` | [Ver transação](https://amoy.polygonscan.com/tx/0x...) |
-| Mint NFT — Denúncia Resolvida | `0x...` | [Ver transação](https://amoy.polygonscan.com/tx/0x...) |
-| Mint NFT — Educação Ambiental | `0x...` | [Ver transação](https://amoy.polygonscan.com/tx/0x...) |
-| Registry — Proof of Existence | `0x...` | [Ver transação](https://amoy.polygonscan.com/tx/0x...) |
+| Ação | Transaction Hash | Etherscan |
+|------|-----------------|-----------|
+| Mint NFT — Limpeza Individual | `0x...` | [Ver transação](https://sepolia.etherscan.io/tx/0x...) |
+| Mint NFT — Evento/Mutirão | `0x...` | [Ver transação](https://sepolia.etherscan.io/tx/0x...) |
+| Mint NFT — Denúncia Resolvida | `0x...` | [Ver transação](https://sepolia.etherscan.io/tx/0x...) |
+| Mint NFT — Educação Ambiental | `0x...` | [Ver transação](https://sepolia.etherscan.io/tx/0x...) |
+| Registry — Proof of Existence | `0x...` | [Ver transação](https://sepolia.etherscan.io/tx/0x...) |
 
 ### Prints
 
@@ -47,11 +49,11 @@ Os prints das transações e dos contratos verificados estão na subpasta `audit
 ```
 auditavel/
 ├── contratos/
-│   ├── ecoproofnft_polygonscan.png
-│   ├── institutonfts_polygonscan.png
-│   ├── educacaonft_polygonscan.png
-│   ├── denuncianft_polygonscan.png
-│   └── registry_polygonscan.png
+│   ├── ecoproofregistry_etherscan.png
+│   ├── ecoproofnft_etherscan.png
+│   ├── institutonfts_etherscan.png
+│   ├── educacaonft_etherscan.png
+│   └── denuncianft_etherscan.png
 └── transacoes/
     ├── mint_limpeza.png
     ├── mint_evento.png
@@ -98,7 +100,7 @@ funcional/
 ```
 artefatos_web3/
 ├── auditavel/
-│   ├── contratos/          # Prints dos contratos verificados no PolygonScan
+│   ├── contratos/          # Prints dos contratos verificados no Etherscan
 │   └── transacoes/         # Prints das transações de mint e registry
 ├── funcional/              # Vídeos e GIFs do sistema em funcionamento
 └── README.md               # Este arquivo
